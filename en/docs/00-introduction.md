@@ -146,7 +146,7 @@ No frameworks, no build toolchains -- just the most basic dependencies.
 #### **TypeScript**
 
 ```bash
-git clone https://github.com/Windy3f3f3f3f/claude-code-from-scratch.git
+git clone https://github.com/yfrcg/claude-code-from-scratch.git
 cd claude-code-from-scratch
 npm install
 export ANTHROPIC_API_KEY=sk-ant-xxx
@@ -156,7 +156,7 @@ npm run dev
 #### **Python**
 
 ```bash
-git clone https://github.com/Windy3f3f3f3f/claude-code-from-scratch.git
+git clone https://github.com/yfrcg/claude-code-from-scratch.git
 cd claude-code-from-scratch/python
 pip install -e .
 export ANTHROPIC_API_KEY=sk-ant-xxx

@@ -4,18 +4,20 @@
 
 **一步一步，从零造一个 Claude Code**
 
-[![GitHub stars](https://img.shields.io/github/stars/Windy3f3f3f3f/claude-code-from-scratch?style=flat-square&logo=github)](https://github.com/Windy3f3f3f3f/claude-code-from-scratch)
-[![GitHub forks](https://img.shields.io/github/forks/Windy3f3f3f3f/claude-code-from-scratch?style=flat-square&logo=github)](https://github.com/Windy3f3f3f3f/claude-code-from-scratch/fork)
+[![GitHub stars](https://img.shields.io/github/stars/yfrcg/claude-code-from-scratch?style=flat-square&logo=github)](https://github.com/yfrcg/claude-code-from-scratch)
+[![GitHub forks](https://img.shields.io/github/forks/yfrcg/claude-code-from-scratch?style=flat-square&logo=github)](https://github.com/yfrcg/claude-code-from-scratch/fork)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](./LICENSE)
 [![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)](#)
 [![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)](#)
 [![Lines of Code](https://img.shields.io/badge/~4300_lines-minimal-green?style=flat-square)](#)
+[![Docs](https://img.shields.io/badge/docs-bilingual-0f766e?style=flat-square)](https://yfrcg.github.io/claude-code-from-scratch/)
+[![Agent Architecture](https://img.shields.io/badge/agent-loop%20%7C%20tools%20%7C%20MCP-f59e0b?style=flat-square)](#-可视化架构)
 
 <br/>
 
-[**📘 在线阅读教程 →**](https://windy3f3f3f3f.github.io/claude-code-from-scratch/)
+[**📘 在线阅读教程 →**](https://yfrcg.github.io/claude-code-from-scratch/)
 &nbsp;&nbsp;|&nbsp;&nbsp;
-[📘 Read Tutorial (English) →](https://windy3f3f3f3f.github.io/claude-code-from-scratch/#/en/)
+[📘 Read Tutorial (English) →](https://yfrcg.github.io/claude-code-from-scratch/#/en/)
 &nbsp;&nbsp;|&nbsp;&nbsp;
 [English](./README_EN.md)
 
@@ -31,41 +33,78 @@
 
 本项目用 **~4300 行代码**（TypeScript 和 Python 两个版本分别实现）复现了 Claude Code 的核心架构——Agent Loop、13 个工具（含并行执行 + 流式早期启动）、4 层上下文压缩、语义记忆召回、技能系统、多 Agent、MCP 集成……每一步都对照真实源码讲解"它怎么做的 → 我们怎么简化的"。
 
-这不是 demo，是一份**分步教程**——13 章内容，跟着动手写几千行代码，快速理解 Claude Code 这样最好用的 coding agent 的精髓。读完你就理解了 coding agent 的工作原理，无需啃那几十万行代码。
+这不是 demo，是一份**分步教程**——从引言到 14 个专题章节，跟着动手写几千行代码，快速理解 Claude Code 这样最好用的 coding agent 的精髓。读完你就理解了 coding agent 的工作原理，无需啃那几十万行代码。
 
 <div align="center">
   <video src="https://github.com/user-attachments/assets/4f6597e2-6ea3-45ae-8a6b-77662c4e9540" width="100%" autoplay loop muted playsinline></video>
 </div>
 
+## 项目亮点
+
+| 你关心的点 | 本项目怎么覆盖 |
+|------|------|
+| 从零理解 Agent | 用最小闭环讲清楚 `模型决策 → 工具执行 → 结果反馈 → 继续迭代` |
+| 对照真实源码 | 每章都标注 Claude Code 对应源码模块，降低直接读 50 万行源码的门槛 |
+| 可运行实现 | TypeScript / Python 双版本，支持 Anthropic 与 OpenAI 兼容后端 |
+| 工程化能力 | 覆盖权限、上下文压缩、记忆、技能、多 Agent、MCP、预算控制、会话持久化 |
+| 发布可读性 | README、在线文档、测试指南、架构图和中英文教程同步维护 |
+
+## 学习路线
+
+```mermaid
+flowchart LR
+    A[引言<br/>为什么从零造] --> B[Phase 1<br/>可用 Agent]
+    B --> B1[Agent Loop]
+    B --> B2[工具系统]
+    B --> B3[System Prompt]
+    B --> B4[CLI / Session]
+    B --> B5[Streaming]
+    B --> B6[权限与上下文]
+    B6 --> C[Phase 2<br/>进阶能力]
+    C --> C1[记忆]
+    C --> C2[技能]
+    C --> C3[Plan Mode]
+    C --> C4[多 Agent]
+    C --> C5[MCP]
+    C5 --> D[测试与扩展]
+
+    classDef core fill:#dbeafe,stroke:#2563eb,color:#111827;
+    classDef advanced fill:#ccfbf1,stroke:#0f766e,color:#111827;
+    classDef finish fill:#fef3c7,stroke:#d97706,color:#111827;
+    class A,B,B1,B2,B3,B4,B5,B6 core;
+    class C,C1,C2,C3,C4,C5 advanced;
+    class D finish;
+```
+
 ## 📖 分步教程
 
-13 章内容，分两个阶段——先构建一个可用的 Coding Agent，再逐步添加进阶能力。每章都贴真实代码 + Claude Code 源码对照：
+14 个专题章节，分两个阶段——先构建一个可用的 Coding Agent，再逐步添加进阶能力。每章都贴真实代码 + Claude Code 源码对照：
 
 | 章节 | 内容 | 对应源码 |
 |------|------|---------|
 | **Phase 1: 构建一个可用的 Coding Agent** | | |
-| [1. Agent Loop](https://windy3f3f3f3f.github.io/claude-code-from-scratch/#/docs/01-agent-loop) | 核心循环：调用 LLM → 执行工具 → 重复 | `agent.ts` ↔ `query.ts` |
-| [2. 工具系统](https://windy3f3f3f3f.github.io/claude-code-from-scratch/#/docs/02-tools) | 13 个工具 + mtime 防护 + 延迟加载 | `tools.ts` ↔ `Tool.ts` + 66 工具 |
-| [3. System Prompt](https://windy3f3f3f3f.github.io/claude-code-from-scratch/#/docs/03-system-prompt) | 提示词工程 + @include 语法 | `prompt.ts` ↔ `prompts.ts` |
-| [4. CLI 与会话](https://windy3f3f3f3f.github.io/claude-code-from-scratch/#/docs/04-cli-session) | REPL、Ctrl+C、会话持久化 | `cli.ts` ↔ `cli.tsx` |
-| [5. 流式输出](https://windy3f3f3f3f.github.io/claude-code-from-scratch/#/docs/05-streaming) | 双后端 + 流式工具执行 + 并行执行 | `agent.ts` ↔ `api/claude.ts` |
-| [6. 权限与安全](https://windy3f3f3f3f.github.io/claude-code-from-scratch/#/docs/06-permissions) | 5 模式 + 声明式规则 + 危险检测 | `tools.ts` ↔ `permissions/` (52KB) |
-| [7. 上下文管理](https://windy3f3f3f3f.github.io/claude-code-from-scratch/#/docs/07-context) | 4 层压缩 + 大结果持久化 | `agent.ts` ↔ `compact/` |
+| [1. Agent Loop](https://yfrcg.github.io/claude-code-from-scratch/#/docs/01-agent-loop) | 核心循环：调用 LLM → 执行工具 → 重复 | `agent.ts` ↔ `query.ts` |
+| [2. 工具系统](https://yfrcg.github.io/claude-code-from-scratch/#/docs/02-tools) | 13 个工具 + mtime 防护 + 延迟加载 | `tools.ts` ↔ `Tool.ts` + 66 工具 |
+| [3. System Prompt](https://yfrcg.github.io/claude-code-from-scratch/#/docs/03-system-prompt) | 提示词工程 + @include 语法 | `prompt.ts` ↔ `prompts.ts` |
+| [4. CLI 与会话](https://yfrcg.github.io/claude-code-from-scratch/#/docs/04-cli-session) | REPL、Ctrl+C、会话持久化 | `cli.ts` ↔ `cli.tsx` |
+| [5. 流式输出](https://yfrcg.github.io/claude-code-from-scratch/#/docs/05-streaming) | 双后端 + 流式工具执行 + 并行执行 | `agent.ts` ↔ `api/claude.ts` |
+| [6. 权限与安全](https://yfrcg.github.io/claude-code-from-scratch/#/docs/06-permissions) | 5 模式 + 声明式规则 + 危险检测 | `tools.ts` ↔ `permissions/` (52KB) |
+| [7. 上下文管理](https://yfrcg.github.io/claude-code-from-scratch/#/docs/07-context) | 4 层压缩 + 大结果持久化 | `agent.ts` ↔ `compact/` |
 | **Phase 2: 进阶能力** | | |
-| [8. 记忆系统](https://windy3f3f3f3f.github.io/claude-code-from-scratch/#/docs/08-memory) | 4 类型记忆 + 语义召回 + 异步预取 | `memory.ts` ↔ `memory.ts` |
-| [9. 技能系统](https://windy3f3f3f3f.github.io/claude-code-from-scratch/#/docs/09-skills) | 技能发现 + inline/fork 双模式 | `skills.ts` ↔ `SkillTool/` |
-| [10. Plan Mode](https://windy3f3f3f3f.github.io/claude-code-from-scratch/#/docs/10-plan-mode) | 只读规划 + 4 选项审批工作流 | `agent.ts` ↔ `EnterPlanMode` |
-| [11. 多 Agent](https://windy3f3f3f3f.github.io/claude-code-from-scratch/#/docs/11-multi-agent) | Sub-Agent fork-return 多 Agent 架构 | `subagent.ts` ↔ `AgentTool/` |
-| [12. MCP 集成](https://windy3f3f3f3f.github.io/claude-code-from-scratch/#/docs/12-mcp) | JSON-RPC over stdio 连接外部工具 | `mcp.ts` ↔ `mcpClient.ts` |
-| [13. 架构对比](https://windy3f3f3f3f.github.io/claude-code-from-scratch/#/docs/13-whats-next) | 完整对比 + 扩展方向 | 全局 |
-| [14. 功能测试](https://windy3f3f3f3f.github.io/claude-code-from-scratch/#/docs/14-testing) | 19 项手动测试覆盖全部功能 | `test/` |
+| [8. 记忆系统](https://yfrcg.github.io/claude-code-from-scratch/#/docs/08-memory) | 4 类型记忆 + 语义召回 + 异步预取 | `memory.ts` ↔ `memory.ts` |
+| [9. 技能系统](https://yfrcg.github.io/claude-code-from-scratch/#/docs/09-skills) | 技能发现 + inline/fork 双模式 | `skills.ts` ↔ `SkillTool/` |
+| [10. Plan Mode](https://yfrcg.github.io/claude-code-from-scratch/#/docs/10-plan-mode) | 只读规划 + 4 选项审批工作流 | `agent.ts` ↔ `EnterPlanMode` |
+| [11. 多 Agent](https://yfrcg.github.io/claude-code-from-scratch/#/docs/11-multi-agent) | Sub-Agent fork-return 多 Agent 架构 | `subagent.ts` ↔ `AgentTool/` |
+| [12. MCP 集成](https://yfrcg.github.io/claude-code-from-scratch/#/docs/12-mcp) | JSON-RPC over stdio 连接外部工具 | `mcp.ts` ↔ `mcpClient.ts` |
+| [13. 架构对比](https://yfrcg.github.io/claude-code-from-scratch/#/docs/13-whats-next) | 完整对比 + 扩展方向 | 全局 |
+| [14. 功能测试](https://yfrcg.github.io/claude-code-from-scratch/#/docs/14-testing) | 19 项手动测试覆盖全部功能 | `test/` |
 
 ## 🚀 快速开始
 
 **TypeScript 版**
 
 ```bash
-git clone https://github.com/Windy3f3f3f3f/claude-code-from-scratch.git
+git clone https://github.com/yfrcg/claude-code-from-scratch.git
 cd claude-code-from-scratch
 npm install && npm run build
 ```
@@ -163,7 +202,7 @@ mini-claude-py               # 直接启动
 | `/skills` | 列出可用的技能 |
 | `/<skill>` | 调用已注册的技能（如 `/commit`） |
 
-> 详见 [CLI 与会话](https://windy3f3f3f3f.github.io/claude-code-from-scratch/#/docs/04-cli-session) 和 [功能测试](https://windy3f3f3f3f.github.io/claude-code-from-scratch/#/docs/14-testing)
+> 详见 [CLI 与会话](https://yfrcg.github.io/claude-code-from-scratch/#/docs/04-cli-session) 和 [功能测试](https://yfrcg.github.io/claude-code-from-scratch/#/docs/14-testing)
 
 ## ⚖️ 与 Claude Code 的对比
 
@@ -227,33 +266,68 @@ python/             # Python 版（功能一致）
 └── pyproject.toml                                  总计: ~3811 行
 ```
 
-## 🏗️ 架构图
+## 🏗️ 可视化架构
 
+```mermaid
+flowchart TB
+    User[用户请求] --> CLI[cli.ts<br/>命令行入口 / REPL]
+    CLI --> Agent[agent.ts<br/>Agent Loop]
+
+    Agent --> Prompt[prompt.ts<br/>System Prompt]
+    Prompt --> Rules[CLAUDE.md / rules / skills]
+
+    Agent --> API{模型后端}
+    API --> Anthropic[Anthropic SDK]
+    API --> OpenAI[OpenAI 兼容 SDK]
+
+    Agent --> Tools[tools.ts<br/>13 个工具]
+    Tools --> Files[文件读写<br/>mtime 防护]
+    Tools --> Shell[Shell<br/>权限检查]
+    Tools --> Search[搜索 / WebFetch]
+    Tools --> MCP[mcp.ts<br/>外部工具]
+
+    Agent --> Memory[memory.ts<br/>语义记忆召回]
+    Agent --> Skills[skills.ts<br/>inline / fork 技能]
+    Agent --> SubAgent[subagent.ts<br/>子 Agent fork-return]
+    Agent --> Session[session.ts<br/>会话持久化]
+    Agent --> UI[ui.ts<br/>流式终端输出]
+
+    Tools --> Observation[工具结果]
+    Observation --> Agent
+    Agent --> Done[无工具调用<br/>任务完成]
+
+    classDef core fill:#dbeafe,stroke:#2563eb,color:#111827;
+    classDef tool fill:#ccfbf1,stroke:#0f766e,color:#111827;
+    classDef state fill:#fef3c7,stroke:#d97706,color:#111827;
+    classDef output fill:#fee2e2,stroke:#dc2626,color:#111827;
+    class Agent,CLI,Prompt,API core;
+    class Tools,Files,Shell,Search,MCP,Skills,SubAgent tool;
+    class Memory,Session,Rules,Observation state;
+    class UI,Done,Anthropic,OpenAI output;
 ```
-用户输入
-  │
-  ▼
-┌─────────────────────────────────────┐
-│          Agent Loop                 │
-│                                     │
-│  消息历史 → API (流式) → 实时输出   │
-│       ▲                   │         │
-│       │              ┌────┴───┐     │
-│       │              │文本输出│     │
-│       │              │工具调用│     │
-│       │              └────┬───┘     │
-│       │                   │         │
-│       │   ┌───────┐ ┌────▼───┐     │
-│       │   │截断保护│←│工具执行│     │
-│       │   └───────┘ └────┬───┘     │
-│       │                   │         │
-│       │   ┌───────────────▼───┐     │
-│       └───│Token 追踪 + 压缩 │     │
-│           └───────────────────┘     │
-└─────────────────────────────────────┘
-  │
-  ▼
-任务完成 → 自动保存会话
+
+```mermaid
+sequenceDiagram
+    participant U as 用户
+    participant C as CLI
+    participant A as Agent
+    participant M as LLM
+    participant T as Tools
+    participant S as Session
+
+    U->>C: 输入任务
+    C->>A: 创建消息与运行参数
+    A->>A: 注入规则 / 记忆 / 技能
+    A->>M: 流式请求
+    M-->>A: 文本块或工具调用
+    alt 需要工具
+        A->>T: 并行 / 串行执行工具
+        T-->>A: 返回观察结果
+        A->>M: 带工具结果继续推理
+    else 无工具调用
+        A->>S: 保存会话
+        A-->>C: 输出最终回答
+    end
 ```
 
 ## 🔗 相关项目
@@ -286,9 +360,9 @@ QQ 群号：**1090526244**
 
 <div align="center">
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=Windy3f3f3f3f/claude-code-from-scratch&type=Date&theme=dark" />
-  <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=Windy3f3f3f3f/claude-code-from-scratch&type=Date" />
-  <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=Windy3f3f3f3f/claude-code-from-scratch&type=Date" width="600" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=yfrcg/claude-code-from-scratch&type=Date&theme=dark" />
+  <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=yfrcg/claude-code-from-scratch&type=Date" />
+  <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=yfrcg/claude-code-from-scratch&type=Date" width="600" />
 </picture>
 </div>
 

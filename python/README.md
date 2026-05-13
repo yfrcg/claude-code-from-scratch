@@ -2,7 +2,7 @@
 
 与 TypeScript 版功能 99% 一致的 Python 实现。**需要 Python >= 3.11**。
 
-> 📖 完整教程文档见 [claude-code-from-scratch](https://github.com/Windy3f3f3f3f/claude-code-from-scratch)（文档中所有代码块均支持 TypeScript / Python 切换）
+> 📖 完整教程文档见 [claude-code-from-scratch](https://github.com/yfrcg/claude-code-from-scratch)（文档中所有代码块均支持 TypeScript / Python 切换）
 
 ## 快速开始
 

@@ -2,7 +2,7 @@
 
 **Build Claude Code from scratch, step by step**
 
-[![GitHub stars](https://img.shields.io/github/stars/Windy3f3f3f3f/claude-code-from-scratch?style=flat-square&logo=github)](https://github.com/Windy3f3f3f3f/claude-code-from-scratch)
+[![GitHub stars](https://img.shields.io/github/stars/yfrcg/claude-code-from-scratch?style=flat-square&logo=github)](https://github.com/yfrcg/claude-code-from-scratch)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](./LICENSE)
 [![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)](#)
 [![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)](#)
@@ -47,7 +47,7 @@ This isn't a demo — it's a **step-by-step tutorial**. Follow along, write a fe
 **TypeScript**
 
 ```bash
-git clone https://github.com/Windy3f3f3f3f/claude-code-from-scratch.git
+git clone https://github.com/yfrcg/claude-code-from-scratch.git
 cd claude-code-from-scratch
 npm install && npm run build
 ```

@@ -7,4 +7,4 @@
 - **TypeScript / Python 两个版本分别实现**，Anthropic / OpenAI 双后端，跨平台
 
 [开始阅读](docs/00-introduction.md)
-[GitHub](https://github.com/Windy3f3f3f3f/claude-code-from-scratch)
+[GitHub](https://github.com/yfrcg/claude-code-from-scratch)
